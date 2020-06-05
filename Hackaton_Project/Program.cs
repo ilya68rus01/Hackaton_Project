@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hackaton_Project
 {
@@ -6,6 +8,8 @@ namespace Hackaton_Project
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine(RomanConverter.ToArabic("XXII"));
             Console.WriteLine("Hello World!");
         }
     }
