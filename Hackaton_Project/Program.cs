@@ -5,10 +5,10 @@ using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using static Hackaton_Project.RomanConverter;
 
-namespace ConsoleApp2
+namespace Hackaton_Project
 {
-
     class Program
     {
         static void Main(string[] args)
