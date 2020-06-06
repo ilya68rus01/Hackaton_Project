@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton_Project", "Hackaton_Project\Hackaton_Project.csproj", "{B626D370-B688-4666-9B9C-9F92375BB42B}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton_Project", "Hackaton_Project\Hackaton_Project.csproj", "{B626D370-B688-4666-9B9C-9F92375BB42B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackaton_Project_Web", "Hackaton_Project_Web\Hackaton_Project_Web.csproj", "{2A93ECCB-7DBA-4747-A16D-B04A79D875FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{B626D370-B688-4666-9B9C-9F92375BB42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B626D370-B688-4666-9B9C-9F92375BB42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B626D370-B688-4666-9B9C-9F92375BB42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A93ECCB-7DBA-4747-A16D-B04A79D875FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A93ECCB-7DBA-4747-A16D-B04A79D875FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A93ECCB-7DBA-4747-A16D-B04A79D875FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A93ECCB-7DBA-4747-A16D-B04A79D875FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EED96A2-13B9-4E64-8AE4-F6023E5889EA}
 	EndGlobalSection
 EndGlobal
