@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Hackaton_Project
 {
     class AddressProcessor
-    {     
+    {
         public char[] RemoveChars { get; set; }
         string replaceArrayChar(string s, char[] charArray)
         {
@@ -16,7 +17,7 @@ namespace Hackaton_Project
             }
             return s;
         }
-
+        
         public IEnumerable<string> processor(IEnumerable<string> inputAddress)
         {
             List<string> outList = new List<string>();
@@ -25,7 +26,6 @@ namespace Hackaton_Project
             {
                 outList.Add(processForString(item));
             }
-
             return outList;
         }
 
@@ -33,6 +33,8 @@ namespace Hackaton_Project
         {
             string str;
             str = replaceArrayChar(inStr, RemoveChars);
+            str = Regex.Replace(str, @"\(.*\)", "");
+           
             return str;
         }
     }

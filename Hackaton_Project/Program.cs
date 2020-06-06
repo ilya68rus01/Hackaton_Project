@@ -12,10 +12,7 @@ namespace Hackaton_Project
     
     class Program
     {
-        static char[] removeChar = { '\"' };
-
-
-
+        static char[] removeChar = { '\"' } ;
         static void Main(string[] args)
         {
             string path = "Resource\\bad.csv";
