@@ -25,7 +25,7 @@ namespace Hackaton_Project
                 Map(m => m.goodAddres).Index(1).Name("goodAddress");
             }
         }
-    class FileCSV
+    public class FileCSV
     {
         public List<string> listAddres = new List<string>();
         public List<int> id = new List<int>();

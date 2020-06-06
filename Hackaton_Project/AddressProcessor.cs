@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Hackaton_Project
 {
-    class AddressProcessor
+    public class AddressProcessor
     {
         public char[] RemoveChars { get; set; } = { '\"' };
         string replaceArrayChar(string s, char[] charArray)

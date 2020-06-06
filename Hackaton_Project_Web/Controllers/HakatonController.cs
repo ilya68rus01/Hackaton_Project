@@ -12,7 +12,7 @@ namespace Hackaton_Project_Web.Controllers
     [ApiController]
     public class HakatonController : ControllerBase
     {
-       static class List<>
+        static List<WrapperProcessor> processList = new List<WrapperProcessor>();
         public HakatonController()
         {
           
@@ -22,21 +22,64 @@ namespace Hackaton_Project_Web.Controllers
         [HttpPost]
         public bool AddFile()
         {
+            if (HttpContext.Request.Form.Files.Count == 0)
+            {
+                return false;
+            }
             var s = HttpContext.Request.Form.Files[0];
             if (s != null)
             {
-            string  g = Guid.NewGuid().ToString();
-            // путь к папке Files
-            string path = "clientapp/FileIN/" + g;
-            // сохраняем файл в папку Files в каталоге wwwroot
+            string  id = Guid.NewGuid().ToString();
+
+            string path = "clientapp/FileIN/" + id;
+            
             using (var fileStream = new FileStream(path, FileMode.Create))
             {
                     s.CopyTo(fileStream);
             }
+                WrapperProcessor wrapperProcessor = new WrapperProcessor() { Id = id };
+                wrapperProcessor.Task = new Task(wrapperProcessor.startProcess);
+                wrapperProcessor.Task.Start();
+                processList.Add(wrapperProcessor);
+                HttpContext.Response.Cookies.Append("id", id, new CookieOptions() {  });
                 return true;
             }
 
             return false;
+        }
+        [HttpGet]
+        public string GetUrl()
+        {
+            var id = HttpContext.Request.Cookies["id"];
+            foreach (var item in processList)
+            {
+                if (item.processCompilite)
+                {
+                    if (item.Id == id)
+                    {
+                    
+                        string url = "/AddresProcessor/GetFile";
+                        
+                        return url;
+                    }
+                }
+
+            } 
+            return "12";
+        }
+        [Route("GetFile")]
+        [HttpGet]
+        public FileResult GetFile()
+        {
+            var id = HttpContext.Request.Cookies["id"];
+            if (id != null)
+            {
+                FileStream fs = new FileStream("clientapp/FileOut/" + id, FileMode.Open);
+                string file_type = "application/csv";
+                string file_name = "out.csv";
+                return File(fs, file_type, file_name);
+            }
+            return null;
         }
     }
 }
