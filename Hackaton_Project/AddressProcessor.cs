@@ -31,10 +31,11 @@ namespace Hackaton_Project
 
         string processForString(string inStr)
         {
+            RomanConverter converter = new RomanConverter();
             string str;
             str = replaceArrayChar(inStr, RemoveChars);
             str = Regex.Replace(str, @"\(.*\)", "");
-           
+            str = converter.ConvertString(str);
             return str;
         }
     }
