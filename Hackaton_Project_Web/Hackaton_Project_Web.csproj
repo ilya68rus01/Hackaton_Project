@@ -9,5 +9,16 @@
     <PackageReference Include="VueCliMiddleware" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="clientapp\FileIN\" />
+    <Folder Include="clientapp\FileOut\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hackaton_Project\Hackaton_Project.csproj" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties clientapp_4package_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 
 </Project>

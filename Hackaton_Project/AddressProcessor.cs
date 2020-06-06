@@ -8,7 +8,7 @@ namespace Hackaton_Project
 {
     class AddressProcessor
     {
-        public char[] RemoveChars { get; set; }
+        public char[] RemoveChars { get; set; } = { '\"' };
         string replaceArrayChar(string s, char[] charArray)
         {
             for (int i = 0; i < charArray.Count(); i++)
