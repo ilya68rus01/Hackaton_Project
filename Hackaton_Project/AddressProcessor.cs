@@ -36,6 +36,7 @@ namespace Hackaton_Project
             str = replaceArrayChar(inStr, RemoveChars);
             str = Regex.Replace(str, @"\(.*\)", "");
             str = converter.ConvertString(str);
+            Console.WriteLine(str);
             return str;
         }
     }
