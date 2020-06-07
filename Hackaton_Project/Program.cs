@@ -24,7 +24,7 @@ namespace Hackaton_Project
             FileCSV fileCSV = new FileCSV();
             fileCSV.loadFile(path);
             fileCSV.outAddress = ap.processor(fileCSV.listAddres).ToList();
-            fileCSV.saveFile("out.csv");
+            fileCSV.saveFile("Resource\\out.csv");
         }
     }
 }
