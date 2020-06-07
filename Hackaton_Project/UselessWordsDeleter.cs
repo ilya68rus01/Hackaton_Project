@@ -9,6 +9,7 @@ namespace Hackaton_Project
             str = deleteFloorWords(str);
             str = deleteRoomWords(str);
             str = renameRoom(str);
+            str = deletePhoneNumber(str);
             return str;
         }
 
@@ -51,6 +52,13 @@ namespace Hackaton_Project
                     str = str.Replace(match.ToString(), "кв. ");
                 }
             }
+            return str;
+        }
+
+        private string deletePhoneNumber(string str)
+        {
+            Regex regex = new Regex(@"[тел]*[.]?[ ]?[+7]?8?-?[ ]?[(]?\d{3}[)]?-?[ ]?\d{3}-?[ ]?\d{2}-?[ ]?\d{2}", RegexOptions.IgnoreCase);
+            str = regex.Replace(str,"");
             return str;
         }
 
