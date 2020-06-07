@@ -11,7 +11,7 @@ namespace Hackaton_Project
     {
         RomanConverter converter = new RomanConverter();
         UselessWordsDeleter deleter = new UselessWordsDeleter();
-        public char[] RemoveChars { get; set; } = { '\"',  };
+        public char[] RemoveChars { get; set; } = { '\"', '*' };
         public char[] RemoveCharsString { get; set; } = { ' ', ',', ';' };
         public char[] TrimChar { get; set; } = { ' ', ',', ';' };
 
