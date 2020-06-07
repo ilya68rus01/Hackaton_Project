@@ -14,7 +14,7 @@ namespace Hackaton_Project
 
         private string deleteFloorWords(string badString)
         {
-            Regex regex = new Regex(@"э.*([т]?[а]?[ж]?)?[ ]?[0-9]*[подвал]?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex regex = new Regex(@"эт[аж]*[.]?[ [0-9]+]?", RegexOptions.IgnoreCase);
             MatchCollection matches = regex.Matches(badString);
             if (matches.Count > 0)
             {
@@ -28,7 +28,7 @@ namespace Hackaton_Project
 
         private string deleteRoomWords(string str)
         {
-            Regex regex = new Regex(@"(пом[.]?([е]?[щ]?[е]?[н]?[и]?[е]?[я]?)?[ ]?\d*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex regex = new Regex(@"пом[ещени[е]*[я]*]*[.]?[ [0-9]+]?", RegexOptions.IgnoreCase);
             MatchCollection matches = regex.Matches(str);
             if (matches.Count > 0)
             {
@@ -42,7 +42,7 @@ namespace Hackaton_Project
 
         private string renameRoom(string str)
         {
-            Regex regex = new Regex(@"(ком[.]?([н]?[а]?[т]?[а]?)?[ ]?)", RegexOptions.Compiled | RegexOptions.IgnoreCase); //(ком[.]?(н?а?т?а?)? )
+            Regex regex = new Regex(@"ком[[ната]*[.]*[ ]?]?", RegexOptions.IgnoreCase);
             MatchCollection matches = regex.Matches(str);
             if (matches.Count > 0)
             {
