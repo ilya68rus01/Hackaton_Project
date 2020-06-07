@@ -42,13 +42,13 @@ namespace Hackaton_Project
 
         public IEnumerable<string> processor(IEnumerable<string> inputAddress)
         {
-            //string[] outList = new string[inputAddress.Count()];
-            //Parallel.For(0, inputAddress.Count(), i => { outList[i] = processForString(inputAddress.ElementAt(i)); });
-            List<string> outList = new List<string>();
-            foreach (var item in inputAddress)
-            {
-                outList.Add(processForString(item));
-            }
+            string[] outList = new string[inputAddress.Count()];
+            Parallel.For(0, inputAddress.Count(), i => { outList[i] = processForString(inputAddress.ElementAt(i)); });
+            //List<string> outList = new List<string>();
+            //foreach (var item in inputAddress)
+            //{
+            //    outList.Add(processForString(item));
+            //}
             return outList;
         }
 
