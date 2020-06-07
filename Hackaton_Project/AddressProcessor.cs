@@ -10,7 +10,12 @@ namespace Hackaton_Project
     public class AddressProcessor
     {
         RomanConverter converter = new RomanConverter();
-        public char[] RemoveChars { get; set; } = { '\"' };
+        UselessWordsDeleter deleter = new UselessWordsDeleter();
+        public char[] RemoveChars { get; set; } = { '\"',  };
+        public char[] RemoveCharsString { get; set; } = { ' ', ',', ';' };
+        public char[] TrimChar { get; set; } = { ' ', ',', ';' };
+
+
         string replaceArrayChar(string s, char[] charArray)
         {
             for (int i = 0; i < charArray.Count(); i++)
@@ -20,15 +25,30 @@ namespace Hackaton_Project
             return s;
         }
 
+        string replaceArrayString(string s, char[] charArray)
+        {
+            for (int i = 0; i < charArray.Count(); i++)
+            {
+                string str = charArray[i].ToString() + charArray[i].ToString();
+                s = s.Replace(str, charArray[i].ToString());
+                string str2 = charArray[i].ToString() + " " + charArray[i].ToString();
+                s = s.Replace(str2, charArray[i].ToString());
+              
+                s = s.Replace(str, charArray[i].ToString());
+                s = s.Replace(str2, charArray[i].ToString());
+            }
+            return s;
+        }
+
         public IEnumerable<string> processor(IEnumerable<string> inputAddress)
         {
-            string[] outList = new string[inputAddress.Count()];
-            //List<string> outList = new List<string>();
-            Parallel.For(0, inputAddress.Count(), i => { outList[i] = processForString(inputAddress.ElementAt(i)); });
-            //foreach (var item in inputAddress)
-            //{
-            //    outList.Add(processForString(item));
-            //}
+            //string[] outList = new string[inputAddress.Count()];
+            //Parallel.For(0, inputAddress.Count(), i => { outList[i] = processForString(inputAddress.ElementAt(i)); });
+            List<string> outList = new List<string>();
+            foreach (var item in inputAddress)
+            {
+                outList.Add(processForString(item));
+            }
             return outList;
         }
 
@@ -39,6 +59,9 @@ namespace Hackaton_Project
             str = replaceArrayChar(inStr, RemoveChars);
             str = Regex.Replace(str, @"\(.*\)", "");
             str = converter.ConvertString(str);
+            str = deleter.deleteUseless(str);
+            str = replaceArrayString(str, RemoveCharsString);
+            str = str.Trim(TrimChar);
             return str;
         }
     }
