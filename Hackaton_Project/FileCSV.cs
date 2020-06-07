@@ -30,8 +30,10 @@ namespace Hackaton_Project
         public List<string> listAddres = new List<string>();
         public List<int> id = new List<int>();
         public List<string> outAddress;
+        
         public void loadFile(string path)
         {
+
             using (var reader = new StreamReader(path))
             {
                 reader.ReadLine(); //костыль

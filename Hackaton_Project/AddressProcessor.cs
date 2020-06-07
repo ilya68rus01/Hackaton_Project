@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Hackaton_Project
 {
     public class AddressProcessor
     {
+        RomanConverter converter = new RomanConverter();
         public char[] RemoveChars { get; set; } = { '\"' };
         string replaceArrayChar(string s, char[] charArray)
         {
@@ -17,21 +19,22 @@ namespace Hackaton_Project
             }
             return s;
         }
-        
+
         public IEnumerable<string> processor(IEnumerable<string> inputAddress)
         {
-            List<string> outList = new List<string>();
-
-            foreach (var item in inputAddress)
-            {
-                outList.Add(processForString(item));
-            }
+            string[] outList = new string[inputAddress.Count()];
+            //List<string> outList = new List<string>();
+            Parallel.For(0, inputAddress.Count(), i => { outList[i] = processForString(inputAddress.ElementAt(i)); });
+            //foreach (var item in inputAddress)
+            //{
+            //    outList.Add(processForString(item));
+            //}
             return outList;
         }
 
         string processForString(string inStr)
         {
-            RomanConverter converter = new RomanConverter();
+
             string str;
             str = replaceArrayChar(inStr, RemoveChars);
             str = Regex.Replace(str, @"\(.*\)", "");

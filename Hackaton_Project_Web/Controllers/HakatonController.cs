@@ -15,8 +15,7 @@ namespace Hackaton_Project_Web.Controllers
         static List<WrapperProcessor> processList = new List<WrapperProcessor>();
         public HakatonController()
         {
-          
-            
+                    
         }
        // [Route("FileLoad")]
         [HttpPost]
@@ -40,7 +39,9 @@ namespace Hackaton_Project_Web.Controllers
                 WrapperProcessor wrapperProcessor = new WrapperProcessor() { Id = id };
                 wrapperProcessor.Task = new Task(wrapperProcessor.startProcess);
                 wrapperProcessor.Task.Start();
+          
                 processList.Add(wrapperProcessor);
+
                 HttpContext.Response.Cookies.Append("id", id, new CookieOptions() {  });
                 return true;
             }
