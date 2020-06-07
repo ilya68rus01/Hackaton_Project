@@ -7,3 +7,5 @@ TSTU
 Входной файл должен распологаться в папке Hackaton_Project/Resource с именем bad.csv , выходной файл также расположен в папке Hackaton_Project/Resorce с именем out.csv.
 
 Сайт написан на Webpack c VueJS,Vue Router, Vue Axios и Аsp.net core, C# .net core 3.1
+
+Ссылка на релиз автономного приложения https://github.com/ilya68rus01/Hackaton_Project/releases/tag/v0.1
